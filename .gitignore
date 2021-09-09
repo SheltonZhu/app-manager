@@ -1,0 +1,17 @@
+.idea
+.vscode
+*/.DS_Store
+static/uploadfile
+main.exe
+go-admin
+temp/
+!temp
+vendor
+config/settings.dev.yml
+config/settings.dev.*.yml
+config/settings.dev.*.yml.log
+temp/logs
+config/settings.dev.yml.log
+*/.DS_Store
+go.sum
+docker-api

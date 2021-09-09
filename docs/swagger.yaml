@@ -1,0 +1,94 @@
+basePath: /
+definitions:
+  gin.H:
+    additionalProperties: true
+    type: object
+host: 192.168.60.23:4399
+info:
+  contact:
+    email: shelton@icloud.com
+    name: Shelton Zhu
+    url: https://github.com/SheltonZhu
+  description: Docker 容器管理
+  title: 容器管理
+  version: "1.0"
+paths:
+  /api/v1/app/docker/{containerId}/restart:
+    post:
+      consumes:
+      - application/json
+      description: 重启容器
+      parameters:
+      - description: 容器id
+        in: path
+        name: containerId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Docker 重启容器接口
+      tags:
+      - 容器操作
+  /api/v1/app/docker/{containerId}/stop:
+    post:
+      consumes:
+      - application/json
+      description: 停止容器
+      parameters:
+      - description: 容器id
+        in: path
+        name: containerId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Docker 停止容器接口
+      tags:
+      - 容器操作
+  /api/v1/app/dockers:
+    get:
+      consumes:
+      - application/json
+      description: 查询容器列表
+      parameters:
+      - description: 是否查询全部容器
+        in: query
+        name: all
+        type: string
+      - description: 是否容器显示大小
+        in: query
+        name: size
+        type: string
+      - description: 是否仅显示最新创建容器
+        in: query
+        name: latest
+        type: string
+      - description: 是否只显示容器id
+        in: query
+        name: quiet
+        type: string
+      - description: 显示数量
+        in: query
+        name: limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/gin.H'
+      summary: Docker 容器列表接口
+      tags:
+      - 容器操作
+swagger: "2.0"

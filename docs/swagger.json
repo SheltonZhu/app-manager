@@ -1,0 +1,142 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Docker 容器管理",
+        "title": "容器管理",
+        "contact": {
+            "name": "Shelton Zhu",
+            "url": "https://github.com/SheltonZhu",
+            "email": "shelton@icloud.com"
+        },
+        "version": "1.0"
+    },
+    "host": "192.168.60.23:4399",
+    "basePath": "/",
+    "paths": {
+        "/api/v1/app/docker/{containerId}/restart": {
+            "post": {
+                "description": "重启容器",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "容器操作"
+                ],
+                "summary": "Docker 重启容器接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "容器id",
+                        "name": "containerId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/app/docker/{containerId}/stop": {
+            "post": {
+                "description": "停止容器",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "容器操作"
+                ],
+                "summary": "Docker 停止容器接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "容器id",
+                        "name": "containerId",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/app/dockers": {
+            "get": {
+                "description": "查询容器列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "容器操作"
+                ],
+                "summary": "Docker 容器列表接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "是否查询全部容器",
+                        "name": "all",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "是否容器显示大小",
+                        "name": "size",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "是否仅显示最新创建容器",
+                        "name": "latest",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "是否只显示容器id",
+                        "name": "quiet",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "显示数量",
+                        "name": "limit",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/gin.H"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "gin.H": {
+            "type": "object",
+            "additionalProperties": true
+        }
+    }
+}
