@@ -44,6 +44,13 @@ var doc = `{
                 "parameters": [
                     {
                         "type": "string",
+                        "description": "jwt",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
                         "description": "容器id",
                         "name": "containerId",
                         "in": "path",
@@ -76,6 +83,13 @@ var doc = `{
                 "parameters": [
                     {
                         "type": "string",
+                        "description": "jwt",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
                         "description": "容器id",
                         "name": "containerId",
                         "in": "path",
@@ -106,6 +120,13 @@ var doc = `{
                 ],
                 "summary": "Docker 容器列表接口",
                 "parameters": [
+                    {
+                        "type": "string",
+                        "description": "jwt",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
                     {
                         "type": "string",
                         "description": "是否查询全部容器",

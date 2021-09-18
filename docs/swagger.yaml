@@ -19,6 +19,11 @@ paths:
       - application/json
       description: 重启容器
       parameters:
+      - description: jwt
+        in: header
+        name: Authorization
+        required: true
+        type: string
       - description: 容器id
         in: path
         name: containerId
@@ -40,6 +45,11 @@ paths:
       - application/json
       description: 停止容器
       parameters:
+      - description: jwt
+        in: header
+        name: Authorization
+        required: true
+        type: string
       - description: 容器id
         in: path
         name: containerId
@@ -61,6 +71,11 @@ paths:
       - application/json
       description: 查询容器列表
       parameters:
+      - description: jwt
+        in: header
+        name: Authorization
+        required: true
+        type: string
       - description: 是否查询全部容器
         in: query
         name: all

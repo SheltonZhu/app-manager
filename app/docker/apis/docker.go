@@ -14,6 +14,7 @@ import (
 // @Tags 容器操作
 // @Accept application/json
 // @Produce application/json
+// @Param Authorization header string true "jwt"
 // @Param all query string false "是否查询全部容器"
 // @Param size query string false "是否容器显示大小"
 // @Param latest query string false "是否仅显示最新创建容器"
@@ -40,7 +41,7 @@ func ListContainer(c *gin.Context) {
 			option.Limit = int(limit)
 		}
 	}
-	c.JSON(http.StatusOK, gin.H{"message": "ok", "result": map[string]interface{}{"containers": service.List(option)}})
+	c.JSON(http.StatusOK, gin.H{"message": "ok", "result": gin.H{"containers": service.List(option)}})
 }
 
 // StopContainer 停止容器接口
@@ -49,6 +50,7 @@ func ListContainer(c *gin.Context) {
 // @Tags 容器操作
 // @Accept application/json
 // @Produce application/json
+// @Param Authorization header string true "jwt"
 // @Param containerId path string true "容器id"
 // @Success 200 {object} gin.H
 // @Router /api/v1/app/docker/{containerId}/stop [post]
@@ -64,6 +66,7 @@ func StopContainer(c *gin.Context) {
 // @Tags 容器操作
 // @Accept application/json
 // @Produce application/json
+// @Param Authorization header string true "jwt"
 // @Param containerId path string true "容器id"
 // @Success 200 {object} gin.H
 // @Router /api/v1/app/docker/{containerId}/restart [post]

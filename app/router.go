@@ -1,7 +1,9 @@
 package app
 
 import (
-	docker "docker-api/app/docker/router"
+	router "docker-api/app/docker/router"
+	"docker-api/app/user"
+	"docker-api/common/middleware"
 	_ "docker-api/docs"
 	"github.com/gin-contrib/requestid"
 	"github.com/gin-gonic/gin"
@@ -14,10 +16,11 @@ import (
 func Register(e *gin.Engine) {
 	// Example ping request.
 	e.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"message": "pong", "time": time.Now().Unix(), "requestId": requestid.Get(c)})
+		c.JSON(http.StatusOK, gin.H{"message": "pong", "result": gin.H{"time": time.Now().Unix(), "requestId": requestid.Get(c)}})
 	})
-
+	e.POST("/auth", user.Login)
 	api := e.Group("/api/v1")
-	docker.RegisterDockerGroup(api)
+	api.Use(middleware.Jwt())
+	router.RegisterDockerGroup(api)
 	e.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 }
