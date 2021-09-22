@@ -3,8 +3,11 @@ version: "3"
 services:
   web:
     build:
+      target: prod
       context: ./
       dockerfile: Dockerfile
     image: docker-api:v0.1
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - "4399:4399"

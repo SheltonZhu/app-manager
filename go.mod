@@ -13,9 +13,11 @@ require (
 	github.com/gin-contrib/requestid v0.0.1
 	github.com/gin-gonic/gin v1.7.4
 	github.com/go-playground/validator/v10 v10.9.0 // indirect
+	github.com/go-telegram-bot-api/telegram-bot-api v4.6.4+incompatible
 	github.com/morikuni/aec v1.0.0 // indirect
 	github.com/swaggo/gin-swagger v1.3.1
 	github.com/swaggo/swag v1.5.1
+	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
 	golang.org/x/crypto v0.0.0-20210711020723-a769d52b0f97
 	google.golang.org/grpc v1.40.0 // indirect
 )

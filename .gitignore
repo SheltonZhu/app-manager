@@ -15,3 +15,7 @@ config/settings.dev.yml.log
 */.DS_Store
 go.sum
 docker-api
+.env.local
+.env.development
+node_modules/
+dist/

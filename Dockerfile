@@ -19,5 +19,5 @@ RUN apk add --no-cache tzdata
 WORKDIR /root/
 COPY --from=builder /go/src/app/docker-api .
 ENV GIN_MODE="release"
-EXPOSE 4399 4399
+EXPOSE 4399
 CMD ["./docker-api"]
