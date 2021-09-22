@@ -1,11 +1,16 @@
 <template>
-  <div class="home" />
+  <div class="home" >
+    <Nav />
+    <router-view />
+  </div>
 </template>
 
 <script>
+import Nav from "../components/Nav";
 export default {
   name: "Home",
   mounted() {},
+  components: { Nav },
   data() {
     return {};
   },

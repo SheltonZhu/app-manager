@@ -1,20 +1,17 @@
 <template>
   <div id="app">
-    <Nav />
     <router-view />
     <el-backtop target="#app" />
   </div>
 </template>
 <script>
 import { mapState } from "vuex";
-import Nav from "./components/Nav";
 
 export default {
   name: "App",
   computed: {
     ...mapState(["token"]),
   },
-  components: { Nav },
   mounted() {
     if (this.token === "") {
       this.$router.replace({

@@ -3,7 +3,7 @@ let storage = {
     localStorage.setItem(key, JSON.stringify(value));
   },
   get(key) {
-    return JSON.parse(localStorage.getItem(key));
+    return JSON.parse(localStorage.getItem(key) || "{}");
   },
   getForIndex(index) {
     return localStorage.key(index);

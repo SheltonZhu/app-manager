@@ -12,25 +12,28 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Container,
+    component: Home,
+    redirect: "/docker",
     meta: {
       requireAuth: true,
       title: "主页",
     },
+    children: [
+      {
+        path: "/docker",
+        name: "docker",
+        meta: {
+          requireAuth: true,
+          title: "容器列表",
+        },
+        component: Container,
+      },
+    ]
   },
   {
     path: "/login",
     name: "login",
     component: Login,
-  },
-  {
-    path: "/docker",
-    name: "docker",
-    meta: {
-      requireAuth: true,
-      title: "容器列表",
-    },
-    component: Container,
   },
   {
     path: "/home",
